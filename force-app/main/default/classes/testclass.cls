@@ -1,9 +1,9 @@
 public class testclass {
 
-    public string name = 'ramakrishna';
-    public string sex = 'Male';
-    public string address = 'canada';
-    public integer age = 35;
+    public string name;
+    public string sex;
+    public string address;
+    public integer age;
     public static void display()
     {
         System.debug('name:' +name);
