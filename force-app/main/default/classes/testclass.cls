@@ -1,8 +1,8 @@
 public class testclass {
 
-    public string name = "ramakrishna";
-    public string sex = "Male";
-    public string address = "canada";
+    public string name = 'ramakrishna';
+    public string sex = 'Male';
+    public string address = 'canada';
     public integer age = 35;
     public static void display()
     {
