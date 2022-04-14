@@ -6,12 +6,11 @@ changeHandler(event)
 {
    this.title = event.target.value
 }
-@track address = {
+address = {
     city : 'mississauga',
     state : 'ON'
 }
 trackHandler(event){
-  this.address.city = event.target.value;
+  this.address.city = {...this.address, "city":event.target.value}
 }
-
 }
