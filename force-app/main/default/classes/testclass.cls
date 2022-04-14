@@ -1,12 +1,16 @@
 public class testclass {
 
-    public string name = "ramakrishna";
-    public string sex = "Male";
-    public string address = "canada";
-    public static void display()
+    public string name;
+    public string sex;
+    public string address;
+    public integer age;
+    public integer size;
+    public void display()
     {
         System.debug('name:' +name);
         System.debug('Sex :' +sex);
         System.debug('address :' +address);
+        System.debug('age :' +age);
+        System.debug('size :' +size);
     }
 }
