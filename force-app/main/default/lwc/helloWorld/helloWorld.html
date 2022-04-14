@@ -1,5 +1,8 @@
 <template>
     
-    <input type="text" onkeyup={changeHandler}/>
-    <div>{fullname} is learning {title}</div>
+
+    <lightning-card  title="Two way binding">
+        <input type="text" onkeyup={changeHandler}/>
+        <div>{fullname} is learning {title}</div>
+    </lightning-card>
 </template>
