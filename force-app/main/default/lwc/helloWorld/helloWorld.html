@@ -2,7 +2,11 @@
     
 
     <lightning-card  title="Two way binding">
-        <input type="text" onkeyup={changeHandler}/>
+        <lightning-input 
+        type="text" 
+        label="Input" 
+        onkeyup={changeHandler}>
+        </lightning-input>
         <div>{fullname} is learning {title}</div>
     </lightning-card>
 </template>
