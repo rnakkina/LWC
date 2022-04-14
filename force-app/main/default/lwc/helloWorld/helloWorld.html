@@ -1,6 +1,4 @@
 <template>
-    
-
     <lightning-card  title="Two way binding">
         <div class="slds-m-around_medium">
             <lightning-input 
@@ -9,6 +7,16 @@
             onkeyup={changeHandler}>
             </lightning-input>
             <div>{fullname} is learning {title}</div>
+        </div>
+    </lightning-card>
+    <lightning-card  title="track example">
+        <div class="slds-m-around_medium">
+            <lightning-input 
+            type="text" 
+            label="Input" 
+            onkeyup={trackHandler}>
+            </lightning-input>
+            <div>{address.city} is my city</div>
         </div>
     </lightning-card>
 </template>
