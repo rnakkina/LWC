@@ -9,5 +9,12 @@
         <template if:true={isvisible}>
             <div>code: sfdc2022</div>
         </template>
+        <template if:false={isvisible}>
+            <div>Please click show button</div>
+        </template>
+        <lightning-input type="text" label="Enter text" 
+        onkeyup={ontypeHandler}>
+    </lightning-input>
+    
     </lightning-card>
 </template>
