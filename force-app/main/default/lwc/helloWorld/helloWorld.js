@@ -17,7 +17,7 @@ userLst = ["rama", "krishna", "nakkina"]
 num1 = 10
 num2 = 20
 get getmyuserlst(){
-    return this.userLst[0]
+    return this.userLst[0].toUpperCase()
 }
 get getmymultiplied()
 {
