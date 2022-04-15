@@ -11,6 +11,6 @@ address = {
     state : 'ON'
 }
 trackHandler(event){
-  this.address.city = {...this.address, "city":event.target.value}
+  this.address = {...this.address, "city":event.target.value}
 }
 }
