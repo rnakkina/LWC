@@ -13,4 +13,14 @@ address = {
 trackHandler(event){
   this.address = {...this.address, "city":event.target.value}
 }
+userLst = ["rama", "krishna", "nakkina"]
+num1 = 10
+num2 = 20
+get getmyuserlst(){
+    return this.userLst[0]
+}
+get getmymultiplied()
+{
+    return this.num1*this.num2
+}
 }
