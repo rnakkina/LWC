@@ -14,7 +14,10 @@
         </template>
         <lightning-input type="text" label="Enter text" 
         onkeyup={ontypeHandler}>
-    </lightning-input>
-    
+        </lightning-input>
+        <template if:false={ontype}>
+            <div>typed text here</div>
+        </template>
+
     </lightning-card>
 </template>
