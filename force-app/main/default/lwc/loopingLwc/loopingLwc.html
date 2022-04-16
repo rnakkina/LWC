@@ -15,8 +15,13 @@
             <template iterator:ceo={ceoLst}>
                 <div key={ceoLst.id}>
                     <ul class="slds-has-dividers_around-space">
+                        <template if:true={ceo.first}>
+                            <div>
+                                <strong>List companies and ceos </strong>
+                            </div>
+                        </template>
                         <li class="slds-item">
-                            <strong>{ceo.value.name}</strong>
+                            <strong>{ceo.value.company}</strong>
                             {ceo.value.name}
                         </li>
                     </ul>
