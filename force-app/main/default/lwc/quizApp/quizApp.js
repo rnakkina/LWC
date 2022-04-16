@@ -3,6 +3,7 @@ import { LightningElement } from 'lwc';
 export default class QuizApp extends LightningElement {
     selected={}
     correctAnswers = 0
+    isSubmitted = false
     myQuestions=[
         {
             id:"question1",
@@ -46,6 +47,7 @@ export default class QuizApp extends LightningElement {
         event.preventDefault()
         let correct = this.myQuestions.filter(item=>this.selected[item.id] === item.correctAnswer )
         this.correctAnswers = correct.length
+        this.isSubmitted = true
         console.log("this.correctAnswers" , this.correctAnswers)
     }
     resetHadler(){
@@ -54,5 +56,9 @@ export default class QuizApp extends LightningElement {
     }
     get notAllSelected(){
         return !(Object.keys(this.selected).length === this.myQuestions.length)
+    }
+    get isScoredfull(){
+        return `slds-text-heading_large ${this.myQuestions.length === this.correctAnswers?
+        'slds-text-color_success' : 'slds-text-color_error' }`
     }
 }

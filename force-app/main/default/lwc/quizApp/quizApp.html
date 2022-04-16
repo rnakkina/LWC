@@ -1,6 +1,8 @@
 <template>
     <lightning-card title="Quiz app">
         <div class="slds-m-around_medium">
+            <template if:true={isSubmitted}>
+            <div class={isScoredfull}>you have scored {correctAnswers} out of {myQuestions.length} </div></template>
             <form>
             <template for:each={myQuestions} for:item="Q">
                 <div key={Q.id} class="slds-m-bottom_medium">
