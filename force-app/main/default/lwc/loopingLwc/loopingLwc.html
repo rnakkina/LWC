@@ -16,7 +16,7 @@
                 <div key={ceoLst.id}>
                     <ul class="slds-has-dividers_around-space">
                         <template if:true={ceo.first}>
-                            <div>
+                            <div class="slds-box slds-theme_shade">
                                 <strong>List companies and ceos </strong>
                             </div>
                         </template>
@@ -24,6 +24,11 @@
                             <strong>{ceo.value.company}</strong>
                             {ceo.value.name}
                         </li>
+                        <template if:true={ceo.last}>
+                            <div class="slds-box slds-theme_shade">
+                                <strong>thanks for displaying List of companies</strong>
+                            </div>
+                        </template>
                     </ul>
                 </div>
             </template>
