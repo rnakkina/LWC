@@ -1,5 +1,11 @@
 <template>
     <lightning-card title="Quiz app">
-        <div class="slds-m-around_medium">Here the Quiz comes</div>
+        <div class="slds-m-around_medium">
+            <template for:each={myQuestions} for:item="Q">
+                <div key={Q.id}>
+                    <div> <strong> {Q.id} - {Q.question}</strong></div>
+                </div>
+            </template>
+        </div>
     </lightning-card>
 </template>
