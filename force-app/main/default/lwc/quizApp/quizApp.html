@@ -2,7 +2,8 @@
     <lightning-card title="Quiz app">
         <div class="slds-m-around_medium">
             <template if:true={isSubmitted}>
-            <div class={isScoredfull}>you have scored {correctAnswers} out of {myQuestions.length} </div></template>
+            <div class={isScoredfull}>you have scored {correctAnswers} out of {myQuestions.length} </div>
+            </template>
             <form>
             <template for:each={myQuestions} for:item="Q">
                 <div key={Q.id} class="slds-m-bottom_medium">
@@ -27,7 +28,7 @@
             class="slds-m-around_small" onclick={submitHandler} disabled={notAllSelected}>
             </lightning-button>
             <lightning-button variant="brand" type="reset" label="reset" title="reset quiz"
-            class="slds-m-around_small" onclick={resetHandler}>
+            class="slds-m-around_small" onclick={resetHadler}>
             </lightning-button>
         </form>
         </div>
