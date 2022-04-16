@@ -53,6 +53,7 @@ export default class QuizApp extends LightningElement {
     resetHadler(){
         this.selected = {}
         this.correctAnswers = 0
+        this.isSubmitted = false
     }
     get notAllSelected(){
         return !(Object.keys(this.selected).length === this.myQuestions.length)
