@@ -2,5 +2,9 @@
     <lightning-card title="Query selector">
     <h1>Hello query selector</h1>
     <button class="slds-button slds-button_brand" onclick={fetchHandler}>fetch details</button>
-    </lightning-card>
+        <template for:each={lst} for:item="item">
+            <div class="name" key={user}>{item}</div>
+        </template>
+        <div class="child" lwc:dom="manual"></div>
+</lightning-card>
 </template>
