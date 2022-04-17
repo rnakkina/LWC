@@ -1,6 +1,22 @@
 <template>
     <lightning-card title="lifecycle parent call">
         <div class="slds-m-around_medium">
+            <template if:false={isChildvisible}>
+            <lightning-button variant="brand" label="show child"
+             title="show child" onclick={handleClick} 
+             class="slds-m-left_x-small"></lightning-button>
+            </template>
+
+            <template if:true={isChildvisible}> 
+             <lightning-button variant="brand" label="remove child"
+             title="remove child" onclick={handleClick} 
+             class="slds-m-left_x-small"></lightning-button>
+            </template>
+
+            <template if:true={isChildvisible}> 
+                <c-life-cycle-child></c-life-cycle-child>
+            </template>
+             
         </div>
     </lightning-card>
 </template>
