@@ -1,8 +1,20 @@
 <template>
+    <!-- primitive data type passing -->
  <c-p2c-alert-component message="Hurray ! i got the data" 
  cardheading="p2c premitive data type commu"
  ></c-p2c-alert-component>
+
+ <!-- complex data type passing to child  -->
 <div class="slds-m-bottom_medium">
 <c-p2c-carousel-component carousel-details={carouselData}></c-p2c-carousel-component>
 </div>
+
+<!-- data passing on action -->
+
+<lightning-card title="data passing on action">
+    <div class="slds-m-around_medium">
+        <lightning-input type="number" label="Enter percentage"></lightning-input>
+        <c-p2c-progress-component></c-p2c-progress-component>
+    </div>
+</lightning-card>
 </template>
