@@ -14,4 +14,12 @@ export default class RenderMethod extends LightningElement {
     {
         this.selectedBtn = event.target.label
     }
+    submitHandler(event)
+    {
+        console.log("successfully signup to the site")
+    }
+    signinHandler(event)
+    {
+        console.log("successfully signin to the site")
+    }
 }
