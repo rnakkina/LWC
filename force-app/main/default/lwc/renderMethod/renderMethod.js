@@ -3,15 +3,15 @@ import signinTemplate from './signinTemplate.html'
 import signupTemplate from './signupTemplate.html'
 import renderTemplate from './renderMethod.html'
 export default class RenderMethod extends LightningElement {
-    selectedbtn=''
+    selectedBtn=''
     render()
     {
-        return this.selectedbtn === 'signup' ? signupTemplate :
-        this.selectedbtn === 'signin' ? signinTemplate :
+        return this.selectedBtn === 'signup' ? signupTemplate :
+        this.selectedBtn === 'signin' ? signinTemplate :
         renderTemplate
     }
     handleClick(event)
     {
-        this.selectedbtn = event.target.lable
+        this.selectedBtn = event.target.label
     }
 }
