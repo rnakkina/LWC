@@ -7,4 +7,5 @@
         <fieldName>lmsData</fieldName>
         <description>This is the field to pass data</description>
     </lightningMessageFields>
+    
 </LightningMessageChannel>
