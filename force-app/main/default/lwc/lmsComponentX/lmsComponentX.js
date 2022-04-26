@@ -1,8 +1,9 @@
 import { LightningElement , wire} from 'lwc';
 import SAMPLEMC from "@salesforce/messageChannel/SampleMessageChannel__c"
-import {APPLICATION_SCOPE, MessageContext, subscribe} from 'lightning/messageService'
+import {subscribe, MessageContext, APPLICATION_SCOPE, unsubscribe} from 'lightning/messageService'
 export default class LmsComponentX extends LightningElement {
     recievedMessage
+    submessage
     @wire(MessageContext)
     context
     connectedCallback()
@@ -10,12 +11,16 @@ export default class LmsComponentX extends LightningElement {
         this.subscribeMessage()
     }
     subscribeMessage(){
-        subscribe(this.Context, SAMPLEMC, (message)=>{
-            this.handleMessage(message)}, {scope:APPLICATION_SCOPE})
+        this.submessage = subscribe(this.context, SAMPLEMC, (message)=>
+            {this.handleMessage(message)}, {scope:APPLICATION_SCOPE})
     }
     handleMessage(message)
     {
-        this.recievedMessage =  message.lmsData.value ? message.lmsData.value : "no message published"
+        this.recievedMessage =  message.lmsData.value? message.lmsData.value : 'no message published'
     }
-
+    unsubHandler()
+    {
+        unsubscribe(this.submessage)
+        this.submessage=null
+    }
 }
