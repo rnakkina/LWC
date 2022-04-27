@@ -4,5 +4,6 @@ public class testclass {
     public void display()
     {
       System.debug('value ' +st);
+      
     }
 }
