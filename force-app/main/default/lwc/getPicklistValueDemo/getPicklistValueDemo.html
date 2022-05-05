@@ -1,3 +1,13 @@
 <template>
-    
+    <lightning-card class="slds-p-around_medium" 
+    title = "pick field value using wire services">
+    <lightning-combobox
+    name="Industry"
+    label="Industry"
+    value={selectedIndus}
+    placeholder="Select Industry"
+    options={industryOptions}
+    onchange={handleChange} ></lightning-combobox>
+    <div>selected Industry - {selectedIndus}</div>
+    </lightning-card>
 </template>

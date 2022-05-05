@@ -1,0 +1,22 @@
+<template>
+    <lightning-card class="slds-p-around_medium" title="get pick values by record type id">
+        <lightning-combobox
+        name="Industry"
+        label="Industry"
+        value={selectedIndus}
+        placeholder="Select Industry"
+        options={industryoptions}
+        onchange={handleChange} ></lightning-combobox>
+        <div>selected Industry - {selectedIndus}</div>
+        
+    <div class="slds-p-around_medium">
+        <lightning-combobox
+        name="rating"
+        label="rating"
+        value={selectedRating}
+        placeholder="Select rating"
+        options={ratingoptions}
+        onchange={handleChange} ></lightning-combobox>
+        <div>selected rating - {selectedRating}</div></div>
+    </lightning-card>
+</template>
