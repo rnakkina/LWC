@@ -1,0 +1,14 @@
+<template>
+    <lightning-card class="slds-m-around_medium" title="update record">
+        <div class="slds-m-around_x-small">
+            <lightning-datatable
+            key-field="Id"
+            data={contacts}
+            columns={columns}
+            draft-values={draftValues}
+            onsave={handleSave}
+            hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

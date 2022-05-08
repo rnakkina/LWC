@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="APEX method call demo" >
+        <div class="slds-p-around_medium">
+            <template if:true={accounts.data}>
+                <template for:each={accounts.data} for:item="account">
+                    <div class="slds-box slds-box_xx-small" key={account.Id}>
+                        <p><strong>Id - {account.Id}</strong></p>
+                        <p><strong>Name - {account.Name}</strong></p>
+                        <p><strong>Type - {account.Type}</strong></p>
+                        <p><strong>Industry - {account.Industry}</strong></p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+
+    <lightning-card title="APEX fuction demo" >
+        <div class="slds-p-around_medium">
+            <template if:true={accountList}>
+                <template for:each={accountList} for:item="account">
+                    <div class="slds-box slds-box_xx-small" key={account.Id}>
+                        <p><strong>Id - {account.Id}</strong></p>
+                        <p><strong>Name - {account.Name}</strong></p>
+                        <p><strong>Type - {account.newType}</strong></p>
+                        <p><strong>Industry - {account.Industry}</strong></p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
