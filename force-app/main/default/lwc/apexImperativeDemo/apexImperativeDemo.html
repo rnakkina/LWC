@@ -1,0 +1,13 @@
+<template>
+    <lightning-card class="slds-m-around_medium" title="apex imperative demo">
+        <lightning-button label="AccountList" variant="brand" title="AccountList" onclick={onclickHandler}> 
+        </lightning-button>
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="account">
+                <div class="slds-m-around_medium" key={account.Id}>
+                <p> account name - {account.Name}</p>
+            </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

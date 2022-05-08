@@ -5,4 +5,13 @@ export default class WireApexWithParams extends LightningElement {
     @wire(filterAccountList, {type:'$selectedtype'})
     filteredAcclist
 
+    get typeOptions(){
+        return [
+            {label:"Customer - Channel", value:"Customer - Channel"},
+            {label:"Customer - Direct", value:"Customer - Direct"}
+        ]
+    }
+    typeHandler(event){
+        this.selectedtype = event.target.value
+    }
 }
