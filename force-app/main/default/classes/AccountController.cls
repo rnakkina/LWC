@@ -10,8 +10,8 @@ public static List<Account> filterAccountList(String type){
     }
 
     @AuraEnabled(cacheable=true)
-    public static List<Account> searchAccount(String searchKey){
-       String key = '%' + searchKey + '%';
+    public static List<Account> searchAccount(String searchkey){
+       String key = '%' + searchkey + '%';
         return [select Id, Name, Type, Industry from Account 
         WHERE Name like : key LIMIT 5];
         }    
