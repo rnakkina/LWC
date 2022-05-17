@@ -1,25 +1,46 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, wire, track } from 'lwc';
 import searchAccount from '@salesforce/apex/FsAccounts.searchAccount'
+import allFsAccounts from '@salesforce/apex/FsAccounts.allFsAccounts'
 import { updateRecord  } from 'lightning/uiRecordApi';
 const COLS=[
     {label:'Account Name', fieldName:'Name', editable:true},
     {label:'Phone', fieldName:'Phone', editable:true},
     {label:'Website', fieldName:'Website', editable:true},
     {label:'Annual Revenue', fieldName:'AnnualRevenue', editable:true},
-    {label:'Account Owner', fieldName:'OwnerName'}
+    {label:'Account Owner', fieldName:'Owner.Name'}
 ]
 export default class FinancialServicesAccountList extends LightningElement {
     searchkey=''
-    accounts
+    @track accountsList = []
+    filteredAccounts = []
     columns = COLS
     draftValues=[]
+    @wire(allFsAccounts)
+    fsAccountsData({data, error})
+    {
+        if(data)
+        {
+            console.log(data)
+            this.accountsList = data
+            this.filteredAccounts = data
+        }
+        if(error)
+        {
+            console.log(error)
+        }
+    }
+
     onkeyupHandler(event)
     {
+        console.log(event.target.value)
         this.searchkey = event.target.value
-        searchAccount({searchkey:this.searchkey}).then(result=>{
-            this.accounts = result
-        }).catch(error=>{
-            console.log(error)
+        let src = event.target.value
+        this.filteredAccounts = []
+        let accf = this.accountsList.map(item=> {
+        console.log(item.Name.includes(src))
+        if(item.Name.includes(src)){
+            this.filteredAccounts.push(item)
+        }
         })
     }
     handleSave(event){

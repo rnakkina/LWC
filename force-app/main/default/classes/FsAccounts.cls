@@ -5,4 +5,9 @@ public with sharing class FsAccounts {
         return [select  Id, Name, Owner.Name, Phone, Website, AnnualRevenue from Account 
         WHERE Name like : key];
         }   
+    @AuraEnabled(cacheable=true)
+    public static List<Account> allFsAccounts(){
+        return [select  Id, Name, Owner.Name, Phone, Website, AnnualRevenue from Account 
+        WHERE Industry = 'Financial Services'];
+        } 
 }
