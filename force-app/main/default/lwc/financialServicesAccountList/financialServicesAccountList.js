@@ -14,7 +14,7 @@ const COLS=[
     typeAttributes: { label: { fieldName: 'Name' }, target: '_blank' }, editable:true }
 ]
 export default class FinancialServicesAccountList extends LightningElement {
-    @track accountsList = []
+    @track accountsList = [];
     @track filteredAccounts = []
     columns = COLS
     draftValues=[]
