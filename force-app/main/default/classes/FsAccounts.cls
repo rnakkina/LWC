@@ -10,4 +10,5 @@ public with sharing class FsAccounts {
         return [select  Id, Name, Owner.Name, Phone, Website, AnnualRevenue from Account 
         WHERE Industry = 'Financial Services'];
         } 
+        
 }
