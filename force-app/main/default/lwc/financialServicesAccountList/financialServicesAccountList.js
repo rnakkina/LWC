@@ -1,13 +1,17 @@
 import { LightningElement, wire, track } from 'lwc';
 import searchAccount from '@salesforce/apex/FsAccounts.searchAccount'
 import allFsAccounts from '@salesforce/apex/FsAccounts.allFsAccounts'
+import { refreshApex } from '@salesforce/apex'
+import { ShowToastEvent } from 'lightning/platformShowToastEvent'
 import { updateRecord  } from 'lightning/uiRecordApi';
 const COLS=[
     {label:'Account Name', fieldName:'Name', editable:true, sortable: "true"},
     {label:'Phone', fieldName:'Phone',  type:"phone",   sortable: "false" , editable:true},
     {label:'Website', fieldName:'Website',  type:"url",    sortable: "false", editable:true},
     {label:'Annual Revenue', fieldName:'AnnualRevenue', sortable: "false", editable:true},
-    {label:'Account Owner', fieldName:'OwnerName', sortable: "true"}
+    {label:'Account Owner', fieldName:'OwnerName', sortable: "true"},
+    { label: 'Name', fieldName: 'accountIdForURL', type: 'url', 
+    typeAttributes: { label: { fieldName: 'Name' }, target: '_blank' }, editable:true }
 ]
 export default class FinancialServicesAccountList extends LightningElement {
     @track accountsList = []
@@ -26,6 +30,7 @@ export default class FinancialServicesAccountList extends LightningElement {
             data.forEach((record)=>{
                 let tempAccRec = Object.assign({}, record);
                 tempAccRec.OwnerName =  record.Owner.Name;
+                tempAccRec.accountIdForURL = '/' + record.Id;
                 tempAccList.push(tempAccRec);
             })
             this.accountsList = tempAccList
@@ -57,9 +62,24 @@ export default class FinancialServicesAccountList extends LightningElement {
         const promises = recordInputs.map(recordInput=>updateRecord(recordInput))
         Promise.all(promises).then(()=>{
             console.log('Account updated Successfully')
-            this.draftValues=[]
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Success',
+                    message: 'Account updated',
+                    variant: 'success'
+                })
+            )
+           this.draftValues = [];
+           return this.refresh();
         }).catch(error=>{
             console.error("Error updating the record", error)
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error updating record',
+                    message: error.body.message,
+                    variant: 'error'
+                })
+            );
         })
         
     }
@@ -80,5 +100,9 @@ export default class FinancialServicesAccountList extends LightningElement {
             return isReverse * ((x > y) - (y > x));
         });
         this.filteredAccounts = parseData;
-    }    
+    }
+    async refresh()
+    {
+        await refreshApex(this.accountsList);
+    }
 }
