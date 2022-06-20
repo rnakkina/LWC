@@ -1,0 +1,10 @@
+[
+    {"Id": "0018c00002DR5jvAAD", 
+        "Name": "GenePoint", 
+        "Type": "Customer - Channel", 
+        "Industry": "Biotechnology"},
+    {"Id": "0018c00002DR5jtAAD", 
+        "Name": "United Oil & Gas, UK", 
+        "Type": "Customer - Direct", 
+        "Industry": "Energy"}
+]

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Conditional render">
+        <lightning-input type="checkbox" label="show password" 
+        onchange={changehandler}></lightning-input>
+        <div class="slds-m-around_medium userinfo">
+        <template if:true={isVisible}>
+            <p>my password is Ramakrishna</p>
+        </template>
+        <template if:false={isVisible}>
+            <p>my password is ******</p>
+        </template>
+        </div>
+    </lightning-card>
+</template>

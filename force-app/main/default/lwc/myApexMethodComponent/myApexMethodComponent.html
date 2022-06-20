@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="apex method wire testing">
+        <div class="slds-m-around_medium">
+            <lightning-button label="load account List" onclick={loadAccounts}>
+            </lightning-button>
+        </div>
+        <template if:true={accountList}>
+            <template for:each={accountList} for:item="account">
+                <p key={account.Id} class="accountName">{account.Name}</p>
+            </template>
+        </template>
+        <template if:true={error}>
+            <p class="error">{error}</p>
+        </template>
+    </lightning-card>
+</template>
